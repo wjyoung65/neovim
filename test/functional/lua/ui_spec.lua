@@ -145,7 +145,7 @@ describe('vim.ui', function()
       if not is_os('bsd') then
         local rv = exec_lua([[
           local orig = vim.ui._get_open_cmd
-          if not orig() then
+          if not vim.ui._get_open_cmd() then
             vim.ui._get_open_cmd = function() return {'fake-xdg-open'}, nil end
           end
           local cmd = vim.ui.open('non-existent-file')
